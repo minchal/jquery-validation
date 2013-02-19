@@ -857,6 +857,10 @@ $.extend($.validator, {
 			}
 
 			if ( value ) {
+				if ( $.isNumeric(value) ) {
+					value = parseFloat(value);
+				}
+				
 				rules[method] = value;
 			} else if ( $element[0].getAttribute("type") === method ) {
 				rules[method] = true;
